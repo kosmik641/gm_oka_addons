@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "models/metrostroi_train/81-760/headlamps_old_hull"
+	"$model" "1"
+	//"$selfillum" "1"
+	//"$selfillumint"		"[2 2 2]"
+}
