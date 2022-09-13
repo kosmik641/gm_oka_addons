@@ -12,5 +12,3 @@
 	$normalmapalphaenvmapmask 1
 	$envmaptint "[0.01 0.01 0.01]"
 }
-	
-}
