@@ -148,7 +148,7 @@ local function clientInject()
 		if self.Advert ~= self:GetNW2Int("Adverts") then self:UpdateTextures() end
 		
 		-- Свечение красных фар
-		local RL = self.Anims["backlights4"].value
+		local RL = self.Anims["backlights4"] and self.Anims["backlights4"].value or 0
 		self:SetLightPower(16,RL > 0,RL)
 		self:SetLightPower(17,RL > 0,RL)
 		self:SetLightPower(18,RL > 0,RL)
@@ -164,13 +164,17 @@ local function clientInject()
 			self:ShowHideSmooth("HeadLights1",0)
 			self:ShowHideSmooth("HeadLights2",0)
 			
-			local headl = self.Anims["headlights1"].value*0.5 + self.Anims["headlights2"].value
+			local animHL0 = self.Anims["headlights0"] and self.Anims["headlights0"].value or 0
+			local animHL1 = self.Anims["headlights1"] and self.Anims["headlights1"].value or 0
+			local animHL2 = self.Anims["headlights2"] and self.Anims["headlights2"].value or 0
+			local headl = animHL1*0.5 + animHL2
+
 			self:SetLightPower(5,headl > 0,headl)
 			self:SetLightPower(6,headl > 0,headl^0.5)
 			self:SetLightPower(7,headl > 0,headl^0.5)
-			self:ShowHideSmooth("HalogenHeadlights0", self.Anims["headlights0"].value*1.12)
-			self:ShowHideSmooth("HalogenHeadlights1", self.Anims["headlights1"].value*1.12)
-			self:ShowHideSmooth("HalogenHeadlights2", self.Anims["headlights2"].value*1.12)
+			self:ShowHideSmooth("HalogenHeadlights0", animHL0*1.12)
+			self:ShowHideSmooth("HalogenHeadlights1", animHL1*1.12)
+			self:ShowHideSmooth("HalogenHeadlights2", animHL2*1.12)
 		else
 			self:SetLightPower(5,false,0)
 			self:SetLightPower(6,false,0)
@@ -218,7 +222,7 @@ local function clientInject()
 		if self.Advert ~= self:GetNW2Int("Adverts") then self:UpdateTextures() end
 		
 		-- Свечение красных фар
-		local RL = self.Anims["backlights4"].value
+		local RL = self.Anims["backlights4"] and self.Anims["backlights4"].value or 0
 		self:SetLightPower(16,RL > 0,RL)
 		self:SetLightPower(17,RL > 0,RL)
 		self:SetLightPower(18,RL > 0,RL)
